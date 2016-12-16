@@ -63,3 +63,10 @@ func (id PacketType) StringByte() byte {
 func (id PacketType) BinaryByte() byte {
 	return byte(id)
 }
+
+func ByteToPacketType(b byte, typ FrameType) PacketType {
+	if typ == FrameString {
+		b -= '0'
+	}
+	return PacketType(b)
+}
